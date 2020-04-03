@@ -31,7 +31,47 @@ body {
     background-image: linear-gradient(to right, #7ed56fb0, #28b485b0), url(../img/hero.jpg);
     background-size: cover; /* to fit all the disponible place */
     background-position: top;
+    position: relative;
 
     /* Make a shape(polygon) with the clip-path function attribut */
     clip-path: polygon(0 0, 100% 0%, 100% 80vh, 0 100%);
+}
+
+/* Logo box styles */
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
+}
+
+/* Text box styles */
+.text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* For a well centered box */
+}
+
+/* Header title styles */
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.heading-primary--main {
+    display: block;
+    font-size: 60px;
+    font-weight: 700;
+    letter-spacing: 35px;
+}
+
+.heading-primary--sub {
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 20px;
 }
