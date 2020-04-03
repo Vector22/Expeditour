@@ -6,3 +6,32 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/* Prevent the browser to add default margin and padding */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Apply some globals styles to the body */
+body {
+    font-family: "Gotu", "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 20px;
+}
+
+/* Header styles */
+.header {
+    height: 95vh; /* vh = viewport height (responsive) */
+    /* Two images as background, one lin-grad and another real image */
+    background-image: linear-gradient(to right, #7ed56fb0, #28b485b0), url(../img/hero.jpg);
+    background-size: cover; /* to fit all the disponible place */
+    background-position: top;
+
+    /* Make a shape(polygon) with the clip-path function attribut */
+    clip-path: polygon(0 0, 100% 0%, 100% 80vh, 0 100%);
+}
