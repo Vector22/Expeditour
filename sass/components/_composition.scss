@@ -1,0 +1,38 @@
+.composition {
+    position: relative;
+
+    &__photo {
+        width: 55%;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+        border-radius: 4px;
+        transition: all .2s;
+
+        position: absolute;
+        z-index: 0; // A minimal z-index to make hover effect more fun
+        outline-offset: 20px; // Make some space betwen image and it's border
+
+        &--picture1 {
+            left: 0;
+            top: -2rem; // Up than the parent block
+        }
+        &--picture2 {
+            right: 0;
+            top: 2rem;
+        }
+        &--picture3 {
+            left: 25%;
+            top: 10rem;
+        }
+
+        &:hover {
+            transform: scale(1.1) translateY(-.5rem);
+            outline: 1.5rem solid $color-primary;
+            box-shadow: 0 2.5rem 4rem rgba($color-black, .6);
+            z-index: 10;
+        }
+    }
+
+    &:hover &__photo:not(:hover) {
+        transform: scale(0.8); // The photos what are not hovered shrink
+    }
+}
