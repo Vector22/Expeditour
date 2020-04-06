@@ -4,6 +4,7 @@ $color-primary-light: #7ed56f;
 $color-primary-dark: #28b485;
 $color-white: #fff;
 $color-gray-dark: #777;
+$color-black: #000;
 
 
 /* Prevent the browser to add default margin and padding */
@@ -48,33 +49,34 @@ body {
 
     /* Make a shape(polygon) with the clip-path function attribut */
     clip-path: polygon(0 0, 100% 0%, 100% 80vh, 0 100%);
-}
 
-/* Logo box styles */
-.header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-}
+    // Some advanced nesting behaviours
+    /* Logo box styles */
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
 
-.header__logo {
-    height: 3.5rem;
-}
-
-/* Animate the logo when hovered */
-.header__logo:hover {
-    animation-name: moveInRight;
-    animation-duration: 1s;
-    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-/* Text box styles */
-.header__text-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* For a well centered box */
-    text-align: center; /* To center all the childs elts*/
+    &__logo {
+        height: 3.5rem;
+    }
+    
+    /* Animate the logo when hovered */
+    &__logo:hover {
+        animation-name: moveInRight;
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    /* Text box styles */
+    &__text-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* For a well centered box */
+        text-align: center; /* To center all the childs elts*/
+    }
 }
 
 /* Header title styles */
@@ -85,97 +87,99 @@ body {
 
     /* Fix happened shake when animated */
     backface-visibility: hidden;
-}
 
-.heading-primary--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 700;
-    letter-spacing: 3.5rem;
-
-    /* Use animations defined bellow (moveInRight)*/
-    animation-name: moveInLeft;
-    animation-duration: 2s;
-    animation-timing-function: ease-in;
+    &--main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 700;
+        letter-spacing: 3.5rem;
     
-    /* animation-delay: 1s;
-    animation-iteration-count: 2; */
-}
-
-.heading-primary--sub {
-    display: block;
-    font-size: 1.8rem;
-    font-weight: 400;
-    letter-spacing: 2rem;
-
-    /* Use animations defined bellow (moveInLeft) */
-    animation-name: moveInRight;
-    animation-duration: 2s;
-    animation-timing-function: ease-in;
-    /* animation-delay: 1s;
-    animation-iteration-count: 2; */
+        /* Use animations defined bellow (moveInRight)*/
+        animation-name: moveInLeft;
+        animation-duration: 2s;
+        animation-timing-function: ease-in;
+        
+        /* animation-delay: 1s;
+        animation-iteration-count: 2; */
+    }
+    
+    &--sub {
+        display: block;
+        font-size: 1.8rem;
+        font-weight: 400;
+        letter-spacing: 2rem;
+    
+        /* Use animations defined bellow (moveInLeft) */
+        animation-name: moveInRight;
+        animation-duration: 2s;
+        animation-timing-function: ease-in;
+        /* animation-delay: 1s;
+        animation-iteration-count: 2; */
+    }
 }
 
 /* The big white button in the header */
-.btn:link,
-.btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    display: inline-block;
-    border-radius: 10rem;
-    transition: all .2s;
-    position: relative; /* Needed by the btn:after animation */
-}
+.btn {
+    &:link, &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all .2s;
+        position: relative; /* Needed by the btn:after animation */
+    }
 
-/* Go a bit up when it ia hovered */
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4); /* A lot of shadow when hovered */
-}
+    /* Go a bit up when it ia hovered */
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.4); // A lot of shadow when hovered
+        // Note that rgba(color, opacity) work only with sass not in pure css
 
-/* Go a  biiit up when it is clicked (down a bit compared to :hover) */
-.btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.6); /* A small shadow when cliked */
-}
+        // We want that the button become bigger when hover
+        &::after {
+            transform: scaleX(1.3) scaleY(1.5);
+            opacity: 0;
+        }
+    }
 
-.btn--white {
-    background-color: $color-white;
-    color: $color-gray-dark;
-}
+    // Go a  biiit up when it is clicked (down a bit compared to :hover)
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 .5rem 1rem rgba($color-black, 0.6); // A small shadow when cliked
+    }
 
-/* Some little animations with :after pseudo elt */
-.btn::after {
-    /* No change happens */
-    content: "";
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    border-radius: 10rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1; /* Hidden by it's parent */
-    transition: all .4s;
-}
+    &--white {
+        background-color: $color-white;
+        color: $color-gray-dark;
 
-.btn--white::after {
-    background-color: $color-white;
-}
+        &::after {
+            background-color: $color-white;
+        }
+    }
 
-/* We want that the button become bigger when hover */
-.btn:hover::after {
-    transform: scaleX(1.3) scaleY(1.5);
-    opacity: 0;
-}
+    // Some little animations with :after pseudo elt
+    &::after {
+        /* No change happens */
+        content: "";
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1; /* Hidden by it's parent */
+        transition: all .4s;
+    }
 
-/* Animate the big white button*/
-.btn--animated {
-    animation-name: moveInBottom;
-    animation-duration: 2s;
-    animation-timing-function: ease-in;
-    animation-fill-mode: backwards;
+    // Animate the big white button
+    &--animated {
+        animation-name: moveInBottom;
+        animation-duration: 2s;
+        animation-timing-function: ease-in;
+        animation-fill-mode: backwards;
+    }
 }
 
 /* Define some animations */

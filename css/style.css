@@ -33,32 +33,28 @@ body {
   background-position: top;
   position: relative;
   /* Make a shape(polygon) with the clip-path function attribut */
-  clip-path: polygon(0 0, 100% 0%, 100% 80vh, 0 100%); }
-
-/* Logo box styles */
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem; }
-
-.header__logo {
-  height: 3.5rem; }
-
-/* Animate the logo when hovered */
-.header__logo:hover {
-  animation-name: moveInRight;
-  animation-duration: 1s;
-  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-
-/* Text box styles */
-.header__text-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* For a well centered box */
-  text-align: center;
-  /* To center all the childs elts*/ }
+  clip-path: polygon(0 0, 100% 0%, 100% 80vh, 0 100%);
+  /* Logo box styles */
+  /* Animate the logo when hovered */
+  /* Text box styles */ }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__logo:hover {
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+  .header__text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* For a well centered box */
+    text-align: center;
+    /* To center all the childs elts*/ }
 
 /* Header title styles */
 .heading-primary {
@@ -68,88 +64,73 @@ body {
   /* Add some space with the white button*/
   /* Fix happened shake when animated */
   backface-visibility: hidden; }
-
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 700;
-  letter-spacing: 3.5rem;
-  /* Use animations defined bellow (moveInRight)*/
-  animation-name: moveInLeft;
-  animation-duration: 2s;
-  animation-timing-function: ease-in;
-  /* animation-delay: 1s;
-    animation-iteration-count: 2; */ }
-
-.heading-primary--sub {
-  display: block;
-  font-size: 1.8rem;
-  font-weight: 400;
-  letter-spacing: 2rem;
-  /* Use animations defined bellow (moveInLeft) */
-  animation-name: moveInRight;
-  animation-duration: 2s;
-  animation-timing-function: ease-in;
-  /* animation-delay: 1s;
-    animation-iteration-count: 2; */ }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 700;
+    letter-spacing: 3.5rem;
+    /* Use animations defined bellow (moveInRight)*/
+    animation-name: moveInLeft;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+    /* animation-delay: 1s;
+        animation-iteration-count: 2; */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 2rem;
+    /* Use animations defined bellow (moveInLeft) */
+    animation-name: moveInRight;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+    /* animation-delay: 1s;
+        animation-iteration-count: 2; */ }
 
 /* The big white button in the header */
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  display: inline-block;
-  border-radius: 10rem;
-  transition: all .2s;
-  position: relative;
-  /* Needed by the btn:after animation */ }
-
-/* Go a bit up when it ia hovered */
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
-  /* A lot of shadow when hovered */ }
-
-/* Go a  biiit up when it is clicked (down a bit compared to :hover) */
-.btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.6);
-  /* A small shadow when cliked */ }
-
-.btn--white {
-  background-color: #fff;
-  color: #777; }
-
-/* Some little animations with :after pseudo elt */
-.btn::after {
-  /* No change happens */
-  content: "";
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  border-radius: 10rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  /* Hidden by it's parent */
-  transition: all .4s; }
-
-.btn--white::after {
-  background-color: #fff; }
-
-/* We want that the button become bigger when hover */
-.btn:hover::after {
-  transform: scaleX(1.3) scaleY(1.5);
-  opacity: 0; }
-
-/* Animate the big white button*/
-.btn--animated {
-  animation-name: moveInBottom;
-  animation-duration: 2s;
-  animation-timing-function: ease-in;
-  animation-fill-mode: backwards; }
+.btn {
+  /* Go a bit up when it ia hovered */ }
+  .btn:link, .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative;
+    /* Needed by the btn:after animation */ }
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4); }
+    .btn:hover::after {
+      transform: scaleX(1.3) scaleY(1.5);
+      opacity: 0; }
+  .btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.6); }
+  .btn--white {
+    background-color: #fff;
+    color: #777; }
+    .btn--white::after {
+      background-color: #fff; }
+  .btn::after {
+    /* No change happens */
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* Hidden by it's parent */
+    transition: all .4s; }
+  .btn--animated {
+    animation-name: moveInBottom;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: backwards; }
 
 /* Define some animations */
 @keyframes moveInLeft {
