@@ -1,0 +1,19 @@
+/* Prevent the browser to add default margin and padding */
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+/* Set a root font size to allows us to use
+    rem in simply way : 1 rem => 10px */
+html {
+    font-size: 10px;
+}
+
+/* Apply some globals styles to the body */
+body {
+    box-sizing: border-box;
+}

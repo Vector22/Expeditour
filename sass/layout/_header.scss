@@ -1,0 +1,43 @@
+/* Header styles */
+.header {
+    height: 95vh; /* vh = viewport height (responsive) */
+    /* Two images as background, one lin-grad and another real image */
+    background-image: linear-gradient(to right,
+        rgba($color-primary-light, 0.6),
+        rgba($color-primary-dark, 0.6)),
+        url(../img/hero.jpg);
+    background-size: cover; /* to fit all the disponible place */
+    background-position: top;
+    position: relative;
+
+    /* Make a shape(polygon) with the clip-path function attribut */
+    clip-path: polygon(0 0, 100% 0%, 100% 80vh, 0 100%);
+
+    // Some advanced nesting behaviours
+    /* Logo box styles */
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &__logo {
+        height: 3.5rem;
+    }
+    
+    /* Animate the logo when hovered */
+    &__logo:hover {
+        animation-name: moveInRight;
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    /* Text box styles */
+    &__text-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* For a well centered box */
+        text-align: center; /* To center all the childs elts*/
+    }
+}

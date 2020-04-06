@@ -1,3 +1,43 @@
+/* Define some animations */
+@keyframes moveInLeft {
+  /* start */
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  /* middle */
+  80% {
+    transform: translateX(1rem);
+    /* trespass the limit */ }
+  /* end*/
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInRight {
+  /* start */
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  /* middle */
+  80% {
+    transform: translateX(-1rem);
+    /* trespass the limit */ }
+  /* end*/
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+/* Animation for the header white button (down to up) */
+@keyframes moveInBottom {
+  /* start */
+  0% {
+    opacity: 0.4;
+    transform: translateY(5rem); }
+  /* end*/
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
 /* Prevent the browser to add default margin and padding */
 *,
 *::after,
@@ -13,50 +53,16 @@ html {
 
 /* Apply some globals styles to the body */
 body {
+  box-sizing: border-box; }
+
+body {
   font-family: "Gotu", "Lato", sans-serif;
   font-weight: 400;
   /* font-size: 16px; */
   line-height: 1.7;
   color: #777;
-  padding: 2rem;
-  /* Make use of inheritance above in * selector */
-  box-sizing: border-box; }
+  padding: 2rem; }
 
-/* Header styles */
-.header {
-  height: 95vh;
-  /* vh = viewport height (responsive) */
-  /* Two images as background, one lin-grad and another real image */
-  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.6), rgba(40, 180, 133, 0.6)), url(../img/hero.jpg);
-  background-size: cover;
-  /* to fit all the disponible place */
-  background-position: top;
-  position: relative;
-  /* Make a shape(polygon) with the clip-path function attribut */
-  clip-path: polygon(0 0, 100% 0%, 100% 80vh, 0 100%);
-  /* Logo box styles */
-  /* Animate the logo when hovered */
-  /* Text box styles */ }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__logo:hover {
-    animation-name: moveInRight;
-    animation-duration: 1s;
-    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-  .header__text-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* For a well centered box */
-    text-align: center;
-    /* To center all the childs elts*/ }
-
-/* Header title styles */
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
@@ -86,6 +92,26 @@ body {
     animation-timing-function: ease-in;
     /* animation-delay: 1s;
         animation-iteration-count: 2; */ }
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  display: inline-block;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: .2rem;
+  transition: all .2s; }
+  .heading-secondary:hover {
+    transform: skewY(3deg) skewX(25deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.3); }
+
+.u-center-text {
+  text-align: center; }
+
+.u-margin-bottom-8 {
+  margin-bottom: 8rem; }
 
 /* The big white button in the header */
 .btn {
@@ -132,42 +158,65 @@ body {
     animation-timing-function: ease-in;
     animation-fill-mode: backwards; }
 
-/* Define some animations */
-@keyframes moveInLeft {
-  /* start */
-  0% {
-    opacity: 0;
-    transform: translateX(-10rem); }
-  /* middle */
-  80% {
-    transform: translateX(1rem);
-    /* trespass the limit */ }
-  /* end*/
-  100% {
-    opacity: 1;
-    transform: translateX(0); } }
+.row {
+  max-width: 114rem;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2, .row .col-2-of-4 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 12rem) / 3); }
+  .row .col-2-of-3 {
+    width: calc((2 * (100% - 12rem) / 3) + 6rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - 18rem) / 4); }
+  .row .col-3-of-4 {
+    width: calc((3 * (100% - 18rem) / 4) + 2 * 6rem); }
 
-@keyframes moveInRight {
-  /* start */
-  0% {
-    opacity: 0;
-    transform: translateX(10rem); }
-  /* middle */
-  80% {
-    transform: translateX(-1rem);
-    /* trespass the limit */ }
-  /* end*/
-  100% {
-    opacity: 1;
-    transform: translateX(0); } }
+/* Header styles */
+.header {
+  height: 95vh;
+  /* vh = viewport height (responsive) */
+  /* Two images as background, one lin-grad and another real image */
+  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.6), rgba(40, 180, 133, 0.6)), url(../img/hero.jpg);
+  background-size: cover;
+  /* to fit all the disponible place */
+  background-position: top;
+  position: relative;
+  /* Make a shape(polygon) with the clip-path function attribut */
+  clip-path: polygon(0 0, 100% 0%, 100% 80vh, 0 100%);
+  /* Logo box styles */
+  /* Animate the logo when hovered */
+  /* Text box styles */ }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__logo:hover {
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+  .header__text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* For a well centered box */
+    text-align: center;
+    /* To center all the childs elts*/ }
 
-/* Animation for the header white button (down to up) */
-@keyframes moveInBottom {
-  /* start */
-  0% {
-    opacity: 0.4;
-    transform: translateY(5rem); }
-  /* end*/
-  100% {
-    opacity: 1;
-    transform: translateY(0); } }
+.section-about {
+  background-color: #f7f7f7;
+  padding: 25rem 0;
+  margin-top: -20vh; }

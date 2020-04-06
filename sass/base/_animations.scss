@@ -1,0 +1,49 @@
+/* Define some animations */
+
+@keyframes moveInLeft {
+    /* start */
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+    /* middle */
+    80% {
+        transform: translateX(1rem); /* trespass the limit */
+    }
+    /* end*/
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    /* start */
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+    /* middle */
+    80% {
+        transform: translateX(-1rem); /* trespass the limit */
+    }
+    /* end*/
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animation for the header white button (down to up) */
+@keyframes moveInBottom {
+    /* start */
+    0% {
+        opacity: 0.4;
+        transform: translateY(5rem);
+    }
+    /* end*/
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
