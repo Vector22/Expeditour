@@ -6,3 +6,26 @@
     // To fill the empty white place lefted by the header polygon
     margin-top: -15vh; // (95vh: header height - 80vh: 3rd y polygon coord)
 }
+
+.section-features {
+    padding: 20rem 0;
+
+    background-image: linear-gradient(to right,
+        rgba($color-primary-light, 0.6),
+        rgba($color-primary-dark, 0.6)),
+        url(../img/nat-4.jpg);
+    background-size: cover;
+
+
+    // Incline the section a bit like the header section
+    transform: skewY(-7deg);
+
+    // A negative margin to fill the place lefted by the tilt
+    margin-top: -10rem;
+
+    // Incline back all the direct box childs (LOOOL... awesome !)
+    // Here apply on the row box
+    & > * {
+        transform: skewY(7deg);
+    }
+}

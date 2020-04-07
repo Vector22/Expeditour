@@ -1,0 +1,28 @@
+.feature-box {
+    background-color: rgba($color-white, 0.7);
+    font-size: 1.4rem;
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 1.5rem 4rem rgba($color-white, 0.2);
+    transition: transform .4s; // For the transform property when Hovered
+
+    &:hover {
+        transform: translateY(-1rem) scale(1.02);
+    }
+
+    &__icon {
+        font-size: 6rem;
+        padding-bottom: .5rem;
+
+        // Cool gradiant effect
+        background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+        display: inline-block;
+        background-clip: text;
+        color: transparent;
+    }
+
+    &__text{
+
+    }
+}
