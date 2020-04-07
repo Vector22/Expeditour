@@ -11,6 +11,7 @@
     position: relative;
 
     /* Make a shape(polygon) with the clip-path function attribut */
+    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 80vh, 0 100%);
     clip-path: polygon(0 0, 100% 0%, 100% 80vh, 0 100%);
 
     // Some advanced nesting behaviours
