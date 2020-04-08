@@ -1,0 +1,59 @@
+.story {
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black, 0.2);
+    background-color: rgba($color-white, 0.5); // All the section will be transpearent
+    border-radius: 4px;
+    padding: 6rem;
+    padding-left: 9rem; // 6rem + 3rem (translateX(-3rem))
+    font-size: $default-font-size;
+    // Skew the entire box with it's childs
+    transform: skewX(-12deg);
+
+    &__shape {
+        width: 15rem;
+        height: 15rem;
+        float: left;
+        shape-outside: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        // The best way to give margin to a float elt is to use transform/translate
+        transform: translateX(-3rem) skewX(12deg); // Re-skew this child
+        position: relative;  // The child "story__caption" has an absolute position
+    }
+
+    &__img {
+        height: 100%;
+        transform: translateX(-4rem) scale(1.4);
+        transition: all .4s;
+
+    }
+
+    &__text {
+        transform: skewX(12deg); // Re-skew this child too
+    }
+
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 20%);  // Centered X  but down Y
+        color: $color-white;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        text-align: center;
+        opacity: 0;
+        transition: all .4s;
+        z-index: 100; // To take precedence on the image
+    }
+
+    &:hover &__caption {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    &:hover &__img {
+        transform: translateX(-4rem) scale(1);
+        // A pretty blur effect on the image
+        filter: blur(1px) brightness(85%);
+    }
+}

@@ -1,0 +1,18 @@
+.bg-video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.2;
+    // Hidde the video overflow
+    overflow: hidden;
+
+    &__content {
+        width: 100%;
+        height: 100%;
+        // Make it fit the html parent elt (like  background-size: cover)
+        object-fit: cover;
+    }
+}

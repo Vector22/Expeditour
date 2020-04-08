@@ -30,7 +30,7 @@
     &__logo:hover {
         animation-name: moveInRight;
         animation-duration: 1s;
-        animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        animation-timing-function: ease-in-out;
     }
     
     /* Text box styles */
