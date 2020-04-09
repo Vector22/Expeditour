@@ -1,0 +1,172 @@
+.navigation {
+    &__checkbox {
+        display: none;
+    }
+
+    &__button {
+        background-color: $color-white;
+        width: 7rem;
+        height: 7rem;
+        position: fixed;
+        top: 6rem;
+        right: 6rem;
+        border-radius: 50%;
+        z-index: 13;
+        box-shadow: 0 1rem 3rem rgba($color-black, .2);
+
+        // Align the icon span elts
+        text-align: center;
+        cursor: pointer;
+    }
+
+    &__background {
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        position: fixed;
+        top: 6.5rem;
+        right: 6.5rem;
+        // The radial-grad begin in the middle of the elt and propagate
+        // to the both side
+        background-image: radial-gradient($color-primary-light, $color-primary-dark);
+        z-index: 11;
+
+        // Just for development
+        // transform: scale(60); // The green button cover all the screen
+
+        // Animate the fit background effect when we hit the button
+        transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+    }
+
+    &__nav {
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 12; // This one is in the middle of __background and __button
+
+        // The navigation is there but no size and can't be seen also
+        opacity: 0;
+        width: 0;
+
+        // Animate the nav too
+        transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    &__list {
+        // Center the list
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        list-style: none;
+        text-align: center;
+        width: 100%;
+    }
+
+    &__item {
+        margin: 1rem;
+    }
+
+    &__link {
+
+        &:link, &:visited {
+
+            display: inline-block;
+            font-family: "Lato" sans-serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: $color-white;
+            padding: 1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            background-image: linear-gradient(120deg, transparent 0%, transparent 50%, white 50%);
+            /* A very cool effect... try to see
+            background-image: linear-gradient(120deg, transparent 0%, orange 50%, white 50%);
+            */
+            // Used to increase the background grandiant size and then fill the box
+            background-size: 250%;
+            transition: all .5s;
+
+            span {
+                margin-right: 2rem;
+                display: inline-block;
+            }
+        }
+
+        &:hover, &:active {
+            background-position: 100%;
+            color: $color-primary;
+            transform: translate(1rem);
+        }
+    }
+
+    // FUNCTIONALITY
+
+    // When we hit the background then it fit all the screen
+    &__checkbox:checked ~ &__background {
+        transform: scale(60);
+    }
+
+    // We make appear the navigation
+    &__checkbox:checked ~ &__nav {
+        opacity: 1;
+        width: 100%;
+    }
+
+    // ICON
+    &__icon {
+
+        position: relative;
+        margin-top: 3.25rem;
+        &,
+        &::before,
+        &::after {
+            width: 3rem;
+            height: 2px;
+            background-color: $color-gray-dark-3;
+            display: inline-block;
+        }
+
+        // Need to define content of ::before and after to see effect
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all 0.5s;
+        }
+
+        // Always try to position them nicely (seriously Js animation is better here -;)
+        &::before {top: -0.8rem;}
+        &::after {top: 0.8rem;}
+    }
+
+    // Rapproche les barres d'icon au survol
+    &__button:hover &__icon:before {
+        top: -1rem;
+    }
+
+    &__button:hover &__icon:after {
+        top: 1rem;
+    }
+
+    // Make the span become a cross
+
+    // At first make the make the original span disappear
+    &__checkbox:checked  + &__button &__icon {
+        background-color: transparent;
+    }
+
+    &__checkbox:checked  + &__button &__icon::before {
+        // Move it back at it initial position
+        top: 0;
+        transform: rotate(135deg); // standard is 45deg (180-45)
+    }
+
+    &__checkbox:checked  + &__button &__icon::after {
+        // Move it back at it initial position
+        top: 0;
+        transform: rotate(-135deg);
+    }
+}
