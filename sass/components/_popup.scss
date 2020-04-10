@@ -1,0 +1,109 @@
+.popup {
+
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba($color-black, .85);
+    z-index: 14;
+
+    // Mask it by default
+    opacity: 0;
+    visibility: hidden;
+    // Small animation
+    transition: all .5s;
+
+    &__content {
+        width: 74%;
+        background-color: $color-white;
+        box-shadow: 0 2rem 4rem rgba($color-black, .25);
+        border-radius: 4px;
+
+       // Center the block with absolute positioning
+       @include centerAsolute;
+
+       // Set the parent elt display to table
+       display: table;
+
+       // Hidde the left images overflow
+       overflow: hidden;
+
+       // Initial position of the content
+       opacity: 0;
+       transform: translate(-50%, -50%) scale(.5);
+
+       // Animate the all with a small delay
+       transition: all .5s .3s;
+    }
+
+    // Made it appear when the target change (click on a button with #popup as ancre)
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    // Style popup content when the popup is open
+    &:target &__content {
+        // Initial position of the content
+       opacity: 1;
+       transform: translate(-50%, -50%) scale(1);
+    }
+
+    &__close {
+        text-decoration: none;
+        // Animate the hover action
+        transition: all .2s;
+        &:link, &:visited {
+            color: $color-gray-dark;
+            font-size: 4rem;
+            position: absolute;
+            top: 0;
+            right: 2.5rem;
+            display: inline-block;
+            line-height: 1;
+        }
+
+        &:hover {
+            color: $color-primary;
+            transform: scale(0.8);
+        }
+    }
+
+    &__left {
+        width: 33.33333%;
+        // We want these two block have the same height
+        display: table-cell;
+    }
+
+    &__right {
+        width: 66.66667%;
+        // We want these two block have the same height
+        display: table-cell;
+        // Center vertically the content
+        vertical-align: middle;
+
+        padding: 4rem 4rem;
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+    }
+
+    &__text {
+        font-size: $default-font-size;
+        margin-bottom: 4rem;
+
+        // New & nice feature to split a text block
+        column-count: 2;
+        column-gap: 4rem;
+        column-rule: 2px solid $color-gray-light-1;
+
+        // Add hyphen automatically (still new feature so...)
+        hyphens: auto;
+        -ms-hyphens: auto;
+        -moz-hyphens: auto;
+        -webkit-hyphens: auto;
+    }
+}
