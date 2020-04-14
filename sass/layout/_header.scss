@@ -14,6 +14,12 @@
     -webkit-clip-path: polygon(0 0, 100% 0%, 100% 80vh, 0 100%);
     clip-path: polygon(0 0, 100% 0%, 100% 80vh, 0 100%);
 
+    // Fix clip-path behaviour on mobile screens
+    @include respond(phone) {
+        -webkit-clip-path: polygon(0 0, 100% 0%, 100% 88vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0%, 100% 88vh, 0 100%);
+    }
+
     // Some advanced nesting behaviours
     /* Logo box styles */
     &__logo-box {

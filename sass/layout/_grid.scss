@@ -3,6 +3,12 @@
 
 .row {
     max-width: $grid-max-width;
+
+    // Media query : decrease the row width and add some side padding
+    @include respond(tab-port) {
+        max-width: 60rem;
+        padding: 0 3rem;
+    }
     // background-color: #ccc;
     // Center a block elt in another block elt
     margin: 0 auto;
@@ -10,6 +16,11 @@
     // Select everythings except the last child
     &:not(:last-child) {
         margin-bottom: $grid-gutter-vertical;
+
+        // Media query : small margins
+        @include respond(tab-port) {
+            margin-bottom: $grid-gutter-vertical-small;
+        }
     }
 
     // Make use of clearfix mixin
@@ -22,6 +33,17 @@
 
         &:not(:last-child) {
             margin-right: $grid-gutter-horizontal;
+
+            // Media query : no margin-right and small margin-bottom
+            @include respond(tab-port) {
+                margin-right: 0;
+                margin-bottom: $grid-gutter-vertical-small;
+            }
+        }
+
+        // Media query : all columns becomes rows
+        @include respond(tab-port) {
+            width: 100% !important;
         }
     }
 

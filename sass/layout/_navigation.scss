@@ -17,6 +17,12 @@
         // Align the icon span elts
         text-align: center;
         cursor: pointer;
+
+        // Media query : Change the button position on width <= 900px
+        @include respond(tab-port) {
+            top: 3.5rem;
+            right: 3.5rem;
+        }
     }
 
     &__background {
@@ -36,6 +42,12 @@
 
         // Animate the fit background effect when we hit the button
         transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+
+        // Media query : Change the background position on width <= 900px
+        @include respond(tab-port) {
+            top: 3.75rem;
+            right: 3.75rem;
+        }
     }
 
     &__nav {

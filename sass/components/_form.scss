@@ -20,6 +20,10 @@
         width: 90%;
         display: block;
 
+        @include respond(tab-port) {
+            width: 100%;
+        }
+
         &:focus {
             outline: none;
             // Let know the user that a input has the focus
@@ -57,6 +61,11 @@
     &__radio-group {
         width: 45%;
         display: inline-block;
+
+        @include respond(tab-port) {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
     }
 
     // Hide the native radio button

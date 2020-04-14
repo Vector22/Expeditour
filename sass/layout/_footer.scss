@@ -4,10 +4,20 @@
     padding: 10rem 0;
     font-size: 1.5rem;
 
+    // Media query : Ajust the padding in tab-port
+    @include respond(tab-port) {
+        padding: 7rem 0;
+    }
+
 
     &__logo-box {
         text-align: center;
         margin-bottom: 8rem;
+
+        // Media query : decrease the margin-bottom
+        @include respond(tab-port) {
+            margin-bottom: 5rem;
+        }
     }
 
     &__logo {
@@ -15,6 +25,10 @@
         height: auto;
         // Try to fix the symeticity with the logo
         transform: translateX(-1.7rem);
+
+        @include respond(tab-port) {
+            transform: translateX(0);
+        }
     }
 
     &__navigation {
@@ -22,6 +36,12 @@
         padding-top: 2rem;
         // Occupy only the place it fit
         display: inline-block;
+
+        // Media query : Empill the nav sub-blocks and center the text
+        @include respond(tab-port) {
+            width: 100%;
+            text-align: center;
+        }
     }
 
     &__list {
@@ -58,5 +78,12 @@
         padding-top: 2rem;
         // Try to fix the symeticity with the logo
         transform: translateX(2rem);
+
+        // Media query : occup all the width
+        @include respond(tab-port) {
+            width: 100%;
+            text-align: center;
+            transform: translate(0);
+        }
     }
 }

@@ -10,6 +10,16 @@
     // Skew the entire box with it's childs
     transform: skewX(-12deg);
 
+    @include respond(tab-port) {
+        width: 95%;
+        padding: 3rem;
+        padding-left: 5rem;
+    }
+
+    @include respond(phone) {
+        transform: skewX(0);
+    }
+
     &__shape {
         width: 15rem;
         height: 15rem;
@@ -19,6 +29,10 @@
         // The best way to give margin to a float elt is to use transform/translate
         transform: translateX(-3rem) skewX(12deg); // Re-skew this child
         position: relative;  // The child "story__caption" has an absolute position
+
+        @include respond(phone) {
+            transform: translateX(-3rem) skewX(0);
+        }
     }
 
     &__img {
@@ -30,6 +44,11 @@
 
     &__text {
         transform: skewX(12deg); // Re-skew this child too
+
+        @include respond(phone) {
+            // Annulate the text skew
+            transform: skewX(0);
+        }
     }
 
     &__caption {
