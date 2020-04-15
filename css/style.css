@@ -71,7 +71,7 @@ html {
   @media (max-width: 56.25em) {
     html {
       font-size: 50%; } }
-  @media (min-width: 112.5) {
+  @media (min-width: 112.5em) {
     html {
       font-size: 75%; } }
 
@@ -787,7 +787,7 @@ body {
   height: 95vh;
   /* vh = viewport height (responsive) */
   /* Two images as background, one lin-grad and another real image */
-  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.6), rgba(40, 180, 133, 0.6)), url(../img/hero.jpg);
+  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.6), rgba(40, 180, 133, 0.6)), url(../img/hero-small.jpg);
   background-size: cover;
   /* to fit all the disponible place */
   background-position: top;
@@ -798,6 +798,9 @@ body {
   /* Logo box styles */
   /* Animate the logo when hovered */
   /* Text box styles */ }
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+    .header {
+      background-image: linear-gradient(to right, rgba(126, 213, 111, 0.6), rgba(40, 180, 133, 0.6)), url(../img/hero.jpg); } }
   @media (max-width: 37.5em) {
     .header {
       -webkit-clip-path: polygon(0 0, 100% 0%, 100% 88vh, 0 100%);

@@ -5,7 +5,7 @@
     background-image: linear-gradient(to right,
         rgba($color-primary-light, 0.6),
         rgba($color-primary-dark, 0.6)),
-        url(../img/hero.jpg);
+        url(../img/hero-small.jpg);
     background-size: cover; /* to fit all the disponible place */
     background-position: top;
     position: relative;
@@ -13,6 +13,16 @@
     /* Make a shape(polygon) with the clip-path function attribut */
     -webkit-clip-path: polygon(0 0, 100% 0%, 100% 80vh, 0 100%);
     clip-path: polygon(0 0, 100% 0%, 100% 80vh, 0 100%);
+
+    // 1 - Media query to load a hight quality image in hight resolution (600px =37.5em)
+    // 2 - The most hight resolution image for the big screen (> 2000px =125em) with/out HD
+    @media (min-resolution: 192dpi) and (min-width: 37.5em),
+    (min-width: 125em) {
+        background-image: linear-gradient(to right,
+        rgba($color-primary-light, 0.6),
+        rgba($color-primary-dark, 0.6)),
+        url(../img/hero.jpg);
+    }
 
     // Fix clip-path behaviour on mobile screens
     @include respond(phone) {
